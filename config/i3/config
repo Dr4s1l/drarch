@@ -62,7 +62,7 @@ bindsym $mod+Return exec /usr/bin/kitty
 bindsym $mod+Shift+Return exec /usr/bin/google-chrome-stable
 
 # kill focused window
-bindsym $mod+Shift+Q kill
+bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun
@@ -95,6 +95,8 @@ bindsym $mod+f fullscreen toggle
 # bindsym $mod+s layout stacking
 # bindsym $mod+z layout tabbed
 # bindsym $mod+BackSpace layout toggle split
+bindsym $mod+shift+l split vertical
+bindsym $mod+shift+o split horizontal
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -126,6 +128,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
+bindsym $mod+control+right workspace next
+bindsym $mod+control+left workspace previous
 bindsym $mod+ampersand workspace number $ws1
 bindsym $mod+eacute workspace number $ws2
 bindsym $mod+quotedbl workspace number $ws3
