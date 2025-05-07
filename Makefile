@@ -114,7 +114,7 @@ install-gui: sanity-check ## Install gui, i3, polybar, kitty, rofi, picom
 	[ -f ~/.config/i3/config ] && [ ! -L ~/.config/i3/config ] && mv ~/.config/i3/config ~/.config/i3/config.skabak
 	ln -sf /opt/skillarch/config/i3/config ~/.config/i3/config
 	ln -sf /opt/skillarch/config/libinput-gestures.conf ~/.config/libinput-gestures.conf
-	ln -sf /opt/skillarch/config/i3/swipe_desktop.sh ~/.config/swipe_desktop.sh
+	ln -sf /opt/skillarch/config/i3/swipe_desktop.sh ~/.config/i3/swipe_desktop.sh
 
 	# polybar config
 	[ ! -d ~/.config/polybar ] && mkdir -p ~/.config/polybar
