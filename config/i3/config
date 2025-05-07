@@ -95,8 +95,8 @@ bindsym $mod+f fullscreen toggle
 # bindsym $mod+s layout stacking
 # bindsym $mod+z layout tabbed
 # bindsym $mod+BackSpace layout toggle split
-bindsym $mod+shift+l split vertical
-bindsym $mod+shift+o split horizontal
+bindsym $mod+Shift+l split vertical
+bindsym $mod+Shift+o split horizontal
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -105,7 +105,7 @@ bindsym $mod+Shift+f floating toggle
 bindsym $mod+Shift+BackSpace focus mode_toggle
 
 # scratchpad
-bindsym $mod+shift+a move to scratchpad
+bindsym $mod+Shift+a move to scratchpad
 bindsym $mod+a scratchpad show
 
 # focus the parent container
@@ -128,8 +128,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+control+right workspace next
-bindsym $mod+control+left workspace previous
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev
 bindsym $mod+ampersand workspace number $ws1
 bindsym $mod+eacute workspace number $ws2
 bindsym $mod+quotedbl workspace number $ws3
@@ -185,7 +185,7 @@ bindsym $mod+s exec pavucontrol
 bindsym $mod+shift+s exec XDG_CURRENT_DESKTOP=GNOME gnome-control-center
 bindsym $mod+e exec emote
 bindsym $mod+b exec blueman-manager
-bindsym $mod+w exec XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
+bindsym $mod+Shift+w exec XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
 bindsym $mod+n exec nautilus
 bindsym $mod+v exec vlc
 bindsym $mod+c exec code
