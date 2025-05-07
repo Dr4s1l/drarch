@@ -1,64 +1,113 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
 
 [colors]
-background = #0d0d0d
-background-alt = #1a1a1a
-foreground = #e6e6e6
-primary = #ff0006
-secondary = #d4af37
-alert = #ff4c4c
-disabled = #555555
-warning = #ff7700
-
+background = #282A2E
+background-alt = #373B41
+foreground = #C5C8C6
+primary = #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
+warning = #F0A500
 
 [bar/main]
 width = 100%
 height = 24pt
 radius = 6
+
+; dpi = 96
+
 background = ${colors.background}
 foreground = ${colors.foreground}
+
 line-size = 3pt
 border-top-size = 5pt
 border-bottom-size = 0pt
 border-left-size = 5pt
 border-right-size = 5pt
+
 border-color = #00000000
+
 padding-left = 0
 padding-right = 1
 module-margin = 1
+
 separator = |
 separator-foreground = ${colors.disabled}
+
 font-0 = monospace:size=11
+
 modules-left = i3 xwindow
 modules-right = ${env:MOD_RIGHT:}
+
 cursor-click = pointer
 cursor-scroll = ns-resize
+
 enable-ipc = true
+
 monitor = ${env:MONITOR:}
 monitor-strict = true
 
+; wm-restack = generic
+; wm-restack = bspwm
+; wm-restack = i3
+
+; override-redirect = true
+
+; This module is not active by default (to enable it, add it to one of the
+; modules-* list above).
+; Please note that only a single tray can exist at any time. If you launch
+; multiple bars with this module, only a single one will show it, the others
+; will produce a warning. Which bar gets the module is timing dependent and can
+; be quite random.
+; For more information, see the documentation page for this module:
+; https://polybar.readthedocs.io/en/stable/user/modules/tray.html
 [module/systray]
 type = internal/tray
+
 format-margin = 8pt
 tray-spacing = 16pt
 
 [module/i3]
 type = internal/i3
 pin-workspaces = true
+
 label-unfocused-background = ${colors.background-alt}
 label-unfocused-foreground = ${colors.primary}
+
 label-mode = %mode%
 label-mode-padding = 1
 label-mode-background = ${colors.alert}
+
 label-focused = %name%
 label-focused-foreground = ${colors.primary}
 label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 1
+
 label-unfocused = %name%
 label-unfocused-padding = 1
+
 label-visible = %name%
 label-visible-underline = ${colors.secondary}
 label-visible-padding = 1
+
 label-urgent = %index%
 label-urgent-foreground = ${colors.alert}
 label-urgent-background = ${colors.background-alt}
@@ -72,25 +121,33 @@ label = %title:0:60:...%
 [module/filesystem]
 type = internal/fs
 interval = 25
+
 mount-0 = /
-label-mounted = %{F#ff0006}%mountpoint%%{F-} %percentage_used%%
+
+label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
 
 [module/pulseaudio]
 type = internal/pulseaudio
+
 format-volume-prefix = "VOL "
 format-volume-prefix-foreground = ${colors.primary}
 format-volume = <label-volume>
+
 label-volume = %percentage%%
-label-muted = %{F#ff0006}VOL%{F-} OFF
+
+label-muted = %{F#F0C674}VOL%{F-} OFF
 label-muted-foreground = ${colors.disabled}
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
+
 label-layout = %layout%
 label-layout-foreground = ${colors.primary}
+
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-foreground = ${colors.background}
@@ -115,10 +172,12 @@ type = internal/battery
 full-at = 99
 low-at = 10
 poll-interval = 5
-label-charging = %{F#ff0006}BAT%{F-} ^ %percentage%%
-label-discharging = %{F#ff0006}BAT%{F-} v %percentage%%
-label-full = %{F#ff0006}BAT%{F-} FULL
-label-low = %{F#ff0006}BAT%{F-} LOW
+label-charging = %{F#F0C674}BAT%{F-} ^ %percentage%%
+label-discharging = %{F#F0C674}BAT%{F-} v %percentage%%
+label-full = %{F#F0C674}BAT%{F-} FULL
+label-low = %{F#F0C674}BAT%{F-} LOW
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
 battery = BAT0
 adapter = ADP1
 
@@ -127,27 +186,29 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-disconnected = %{F#ff0006}%ifname%%{F#555555} disconnected
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#ff0006}%ifname%%{F-} %essid% %local_ip%
+label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
 click-left = nm-connection-editor
 format-disconnected =
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = %{F#ff0006}%ifname%%{F-} %local_ip%
+label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 click-left = nm-connection-editor
 format-disconnected =
 
 [module/date]
 type = internal/date
 interval = 1
+
 date = %H:%M
 date-alt = %Y-%m-%d %H:%M:%S
+
 label = %date%
 label-foreground = ${colors.primary}
 
