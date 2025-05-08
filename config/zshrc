@@ -97,6 +97,8 @@ antigen bundle colorize
 antigen bundle atom
 antigen bundle psprint/zsh-navigation-tools
 
+antigen apply
+
 # source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -142,5 +144,5 @@ eval "$(register-python-argcomplete --no-defaults exegol)"
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.pdtm/go/bin
 
-fastfetch
+/usr/bin/fastfetch --logo /opt/skillarch/assets/drasil.png --logo-width 50
 task
