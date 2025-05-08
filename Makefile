@@ -56,7 +56,7 @@ install-cli-tools: sanity-check ## Install system packages
 	[ -f ~/.config/nvim/init.lua ] && [ ! -L ~/.config/nvim/init.lua ] && mv ~/.config/nvim/init.lua ~/.config/nvim/init.lua.skabak
 	ln -sf /opt/skillarch/config/nvim/init.lua ~/.config/nvim/init.lua
 	nvim --headless +"Lazy! sync" +qa >/dev/null # Download and update plugins
-	curl https://getmic.ro | bash
+	curl https://getmic.ro | bash && rm micro
 	ln -sf /opt/skillarch/config/micro/ ~/.config/micro
 
 	# Install pipx & tools
