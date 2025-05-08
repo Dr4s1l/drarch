@@ -56,6 +56,8 @@ install-cli-tools: sanity-check ## Install system packages
 	[ -f ~/.config/nvim/init.lua ] && [ ! -L ~/.config/nvim/init.lua ] && mv ~/.config/nvim/init.lua ~/.config/nvim/init.lua.skabak
 	ln -sf /opt/skillarch/config/nvim/init.lua ~/.config/nvim/init.lua
 	nvim --headless +"Lazy! sync" +qa >/dev/null # Download and update plugins
+	curl https://getmic.ro | bash
+	ln -sf /opt/skillarch/config/micro/ ~/.config/micro
 
 	# Install pipx & tools
 	yay --noconfirm --needed -S python-pipx
@@ -76,6 +78,8 @@ install-shell: sanity-check ## Install shell packages
 	[ ! -d ~/.oh-my-zsh ] && sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 	[ -f ~/.zshrc ] && [ ! -L ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.skabak
 	ln -sf /opt/skillarch/config/zshrc ~/.zshrc
+	[ -f ~/antigen.zsh ] && [ ! -L ~/antiigen.zsh ] && mv ~/antigen.zsh ~/antigen.zsh.skabak
+	ln -sf /opt/skillarch/config/antigen.zsh ~/antigen.zsh
 	[ ! -d ~/.oh-my-zsh/plugins/zsh-completions ] && git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins/zsh-completions
 	[ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ] && git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 	[ ! -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ] && git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
@@ -92,6 +96,7 @@ install-shell: sanity-check ## Install shell packages
 	# Set the default user shell to zsh
 	sudo chsh -s /usr/bin/zsh "$$USER" # Logout required to be applied
 	sudo gpasswd -a "$$USER" input
+	mise exec -- cargo install exa
 
 install-docker: sanity-check ## Install docker
 	yes|sudo pacman -S --noconfirm --needed docker docker-compose
@@ -105,7 +110,7 @@ install-docker: sanity-check ## Install docker
 
 install-gui: sanity-check ## Install gui, i3, polybar, kitty, rofi, picom
 	[ ! -f /etc/machine-id ] && sudo systemd-machine-id-setup
-	yes|sudo pacman -S --noconfirm --needed i3-gaps i3blocks i3lock i3lock-fancy-git i3status dmenu feh rofi nm-connection-editor picom polybar kitty brightnessctl xorg-xhost
+	yes|sudo pacman -S --noconfirm --needed i3-gaps i3blocks i3lock i3lock-fancy-git i3status dmenu feh rofi nm-connection-editor picom polybar kitty brightnessctl xorg-xhost conky task
 	yay --noconfirm --needed -S rofi-power-menu i3-battery-popup-git
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
@@ -163,6 +168,8 @@ install-offensive: sanity-check ## Install offensive tools
 	mise exec -- go install github.com/glitchedgitz/cook/v2/cmd/cook@latest > /dev/null
 	mise exec -- go install github.com/x90skysn3k/brutespray@latest > /dev/null
 	mise exec -- go install github.com/sensepost/gowitness@latest > /dev/null
+	mise exec -- go install github.com/restic/restic/cmd/restic@latest > /dev/null
+	mise exec -- go install github.com/rclone/rclone@latest > /dev/null
 	sleep 30
 	zsh -c "source ~/.zshrc && pdtm -install-all -v"
 	zsh -c "source ~/.zshrc && nuclei -update-templates -update-template-dir ~/.nuclei-templates"

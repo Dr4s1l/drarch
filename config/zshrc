@@ -73,7 +73,29 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent colored-man-pages docker extract fzf mise npm terraform tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+#plugins=(git ssh-agent colored-man-pages docker extract fzf mise npm terraform tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+
+source ~/antigen.zsh
+
+antigen bundle git
+antigen bundle ssh-agent
+antigen bundle docker
+antigen bundle extract
+antigen bundle fzf
+antigen bundle mise
+antigen bundle npm
+antigen bundle terraform
+antigen bundle tmux
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle sudo
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle python
+antigen bundle colored-man-pages
+antigen bundle colorize
+antigen bundle atom
+antigen bundle psprint/zsh-navigation-tools
 
 # source $ZSH/oh-my-zsh.sh
 
@@ -119,3 +141,6 @@ eval "$(register-python-argcomplete --no-defaults exegol)"
 # Created by `pipx` on 2025-03-03 15:05:01
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.pdtm/go/bin
+
+fastfetch
+task

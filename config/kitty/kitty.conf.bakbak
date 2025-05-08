@@ -1,13 +1,12 @@
-
 # Fonts
 font_family MesloLGS NF
 italic_font auto
 bold_font auto
 bold_italic_font auto
-font_size 15
+font_size 18
 
 # The basic colors
-foreground              #e0c7a6
+foreground              #e6e6e6
 background              #0d0d0d
 selection_foreground    #0d0d0d
 selection_background    #ff0006
@@ -31,7 +30,7 @@ macos_titlebar_color    #0d0d0d
 # Tab bar colors
 active_tab_foreground   #0d0d0d
 active_tab_background   #ff0006
-inactive_tab_foreground #e0c7a6
+inactive_tab_foreground #e6e6e6
 inactive_tab_background #1a1a1a
 tab_bar_background      #0d0d0d
 
@@ -53,23 +52,23 @@ color8  #333333
 color1  #ff0006
 color9  #ff4c4c
 
-# green
+# green (muted)
 color2  #5faa4b
 color10 #8fc47c
 
-# yellow
+# yellow (gold)
 color3  #d4af37
 color11 #ffe066
 
-# blue
+# blue (used sparingly)
 color4  #4f4f7a
 color12 #6a6a9a
 
-# magenta
+# magenta (off-red tint)
 color5  #aa3355
 color13 #cc4466
 
-# cyan
+# cyan (used rarely in accents)
 color6  #4ca1af
 color14 #74c9cb
 
