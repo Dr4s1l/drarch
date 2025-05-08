@@ -77,6 +77,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
 
 source ~/antigen.zsh
 
+antigen use oh-my-zsh
 antigen bundle git
 antigen bundle ssh-agent
 antigen bundle docker
@@ -96,6 +97,7 @@ antigen bundle colored-man-pages
 antigen bundle colorize
 antigen bundle atom
 antigen bundle psprint/zsh-navigation-tools
+antigen theme rkj-repos
 
 antigen apply
 
