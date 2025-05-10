@@ -78,6 +78,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
 source ~/antigen.zsh
 
 antigen use oh-my-zsh
+antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle git
 antigen bundle ssh-agent
 antigen bundle docker
@@ -87,16 +88,16 @@ antigen bundle mise
 antigen bundle npm
 antigen bundle terraform
 antigen bundle tmux
-antigen bundle zsh-autosuggestions
-antigen bundle zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 antigen bundle sudo
 antigen bundle command-not-found
-antigen bundle zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle python
 antigen bundle colored-man-pages
 antigen bundle colorize
 antigen bundle atom
-antigen bundle psprint/zsh-navigation-tools
+antigen bundle zsh-navigation-tools
 antigen theme rkj-repos
 
 antigen apply
